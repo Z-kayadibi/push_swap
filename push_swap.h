@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 19:02:19 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/23 20:15:11 by zkayadib         ###   ########.fr       */
+/*   Created: 2025/01/23 20:10:07 by zkayadib          #+#    #+#             */
+/*   Updated: 2025/01/23 20:17:29 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdio.h"
-#include "push_swap.h"
+#ifndef PUSH_SWAP
+#define PUSH_SWAP
 
-int	main(int argc, char *argv[])
-{
-	if (argc < 1)
-		return (0);
-	error(argv, argc);
-}
+#include <stdlib.h>
+#include <unistd.h>
+
+void		error(char *argv[], int argc);
+long int	ft_atoi(char *str);
+char		*ft_strchr(char *s, int c);
+int			number_ctrl(char **argv, int argc);
+int			ft_isdigit(char *c);
+
+#endif
