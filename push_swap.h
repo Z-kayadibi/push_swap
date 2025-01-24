@@ -6,7 +6,7 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:10:07 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/23 20:17:29 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/24 21:39:27 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,19 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+
+typedef struct s_list
+{
+	int content;
+	struct s_list *next;
+}	t_list;
+
+//LIST OPERATIONS
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(int content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+
 
 void		error(char *argv[], int argc);
 long int	ft_atoi(char *str);

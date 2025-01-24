@@ -1,15 +1,16 @@
 SRCS =  main.c	\
-error_control.c
+error_control.c	\
+listoperations.c
 
 OBJS = ${SRCS:.c=.o}
-NAME =  push_swap.a
+NAME =  push_swap
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar r $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
 
 clean:
 	rm -f $(OBJS)
