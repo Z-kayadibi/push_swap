@@ -6,7 +6,7 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:10:07 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/24 21:39:27 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:55:55 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+#include "stdio.h"
 
 typedef struct s_list
 {

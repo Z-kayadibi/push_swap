@@ -6,7 +6,7 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:02:19 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/24 21:57:55 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:28:55 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,25 @@
 int main(int ac, char **av)
 {
 	int 	i = 1;
-	t_list	*list;
+	t_list	*a;
+	t_list *b;
 
-	list = NULL;
+	a = NULL;
+	b = NULL;
 	error(av, ac);
-	// printf("%p = > %p\n", &list, list);
+	printf("%p = > %p\n", &a, a);
 
 	while (i < ac)
-		ft_lstadd_back(&list, ft_lstnew(ft_atoi(av[i++])));
+		ft_lstadd_back(&a, ft_lstnew(ft_atoi(av[i++])));
 
-	t_list *tmp = list;
-
+	t_list *tmp = a;
+	printf("a: %p\n", a);
+	printf("tmp: %p\n", tmp);
 	while (tmp != NULL)
 	{
-		// printf("%d\n", tmp->content);
+		printf("%d\n", tmp->content);
 		tmp = tmp->next;
 	}
-	ft_lstclear(&list, free);
+	ft_lstclear(&a, free);
 	return (0);
 }
