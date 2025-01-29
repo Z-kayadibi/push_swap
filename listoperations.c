@@ -6,14 +6,14 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:34:23 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/24 21:48:09 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/29 21:19:23 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	lib_lstadd_back(t_list **lst, t_list *new)
 {
 	if (!new || !lst)
 		return ;
@@ -66,4 +66,17 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		free(*lst);
 		*lst = tmp;
 	}
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst -> next;
+		i ++;
+	}
+	return (i);
 }

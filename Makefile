@@ -1,6 +1,8 @@
 SRCS =  main.c	\
 error_control.c	\
-listoperations.c
+listoperations.c	\
+actions.c	\
+actions_with_utils.c
 
 OBJS = ${SRCS:.c=.o}
 NAME =  push_swap
