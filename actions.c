@@ -6,7 +6,7 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 18:23:59 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/27 22:40:34 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:59:45 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,28 @@ void pa(t_list **a, t_list **b)
 	*b = tmp;
 }
 
-/* t_list	*ft_lstnew(int content)
+void ra(t_list **a)
+{
+	ft_lstadd_back(a, *a);
+}
+
+void rb(t_list **b)
+{
+	ft_lstadd_back(b, *b);
+}
+
+void rra(t_list **a)
+{
+	t_list *last;
+	t_list *tmp;
+	
+	last = ft_lstlast(*a);
+	tmp = *a;
+	*a = last;
+	last->next = tmp;
+}
+
+t_list	*ft_lstnew(int content)
 {
 	t_list	*tmp;
 
@@ -66,6 +87,23 @@ void pa(t_list **a, t_list **b)
 	tmp->content = content;
 	tmp->next = NULL;
 	return (tmp);
+}
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list *tmp;
+	t_list *tmp2;
+	
+	if (!new || !lst)
+		return ;
+	if (!*lst)
+		(*lst) = new;
+	tmp = *lst;
+	tmp2 = tmp->next;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->next = NULL;
+	*lst = tmp2;
 }
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
@@ -82,6 +120,18 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		*lst = tmp;
 	}
 }
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
+
 int main ()
 {
 	t_list *a;
@@ -102,15 +152,18 @@ int main ()
 	f = ft_lstnew(6);
 	d->next = e;
 	d->next->next = f;
-	pa(&a, &d);
+	// printf("%d\n", a->content);
+	// printf("%d\n", a->next->content);
+	// printf("%d\n", a->next->next->content);
+	rra(&a);
 	printf("%d\n", a->content);
 	printf("%d\n", a->next->content);
 	printf("%d\n", a->next->next->content);
-	printf("%d\n", a->next->next->next->content);
-	printf("%d\n", d->content);
-	printf("%d\n", d->next->content);
+	// printf("%d\n", a->next->next->next->content);
+	// printf("%d\n", d->content);
+	// printf("%d\n", d->next->content);
 
 	ft_lstclear(&a, free);
 	ft_lstclear(&d, free);
 	
-} */
+}

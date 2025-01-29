@@ -6,7 +6,7 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:02:19 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/26 18:28:55 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:54:10 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int ac, char **av)
 	printf("%p = > %p\n", &a, a);
 
 	while (i < ac)
-		ft_lstadd_back(&a, ft_lstnew(ft_atoi(av[i++])));
+		lib_lstadd_back(&a, ft_lstnew(ft_atoi(av[i++])));
 
 	t_list *tmp = a;
 	printf("a: %p\n", a);

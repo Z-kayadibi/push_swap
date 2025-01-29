@@ -6,7 +6,7 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 20:10:07 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/27 19:55:55 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:54:00 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list	*ft_lstnew(int content);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 
-
+void	lib_lstadd_back(t_list **lst, t_list *new);
 void		error(char *argv[], int argc);
 long int	ft_atoi(char *str);
 char		*ft_strchr(char *s, int c);
