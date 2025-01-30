@@ -6,62 +6,79 @@
 /*   By: zkayadib <zkayadib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 19:02:19 by zkayadib          #+#    #+#             */
-/*   Updated: 2025/01/29 22:12:29 by zkayadib         ###   ########.fr       */
+/*   Updated: 2025/01/30 23:57:06 by zkayadib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdio.h"
 #include "push_swap.h"
 
-// void *max(t_list **stack);
-
 int main(int ac, char **av)
 {
 	int 	i = 1;
 	t_list	*a;
 	t_list *b;
-	t_list *maxx;
+	t_list *max;
+	t_list *min;
 
 	a = NULL;
 	b = NULL;
 	error(av, ac);
-	printf("%p = > %p\n", &a, a);
-
 	while (i < ac)
 		lib_lstadd_back(&a, ft_lstnew(ft_atoi(av[i++])));
 
 	t_list *tmp = a;
-	printf("a: %p\n", a);
-	printf("tmp: %p\n", tmp);
-	while (tmp != NULL)
+    /*while (tmp != NULL)
 	{
 		printf("%d\n", tmp->content);
 		tmp = tmp->next;
-	}
-	maxx = max(&a);
-	printf("max: %d", maxx->content);
+	} */
+	max = max_content(&a);
+	printf("max: %d\n", max->content);
+	min = min_content(&a);
+	printf("min: %d\n", min->content);
 	ft_lstclear(&a, free);
 	return (0);
 }
-/* 
-void *max(t_list **stack)
+
+t_list *max_content(t_list **stack)
 {
 	int i;
-
-	i = 0;
 	t_list *max;
+	t_list *tmp;
+	
+	i = 0;
+	tmp = *stack;
 	if (!*stack || !stack)
 		return (NULL);
 	max = *stack;
-	while ((*stack)->next)
+	while ((tmp))
 	{
-		printf("deneme\n");
-		if((*stack)->content > (*stack)->next->content)
-			max = *stack;
-		*stack = (*stack)->next;
+		if((tmp)->content > max->content)
+			max = tmp;
+		tmp = (tmp)->next;
 	}
-	if (((*stack)->content) > max->content)
-		max = *stack;
+	printf("fonk-max: %d\n", max->content);
 	return(max);
 }
- */
+
+t_list *min_content(t_list **stack)
+{
+	int i;
+	t_list *min;
+	t_list *tmp;
+	
+	i = 0;
+	tmp = *stack;
+	if (!*stack || !stack)
+		return (NULL);
+	min = *stack;
+	while ((tmp))
+	{
+		if((tmp)->content < min->content)
+			min = tmp;
+		tmp = (tmp)->next;
+	}
+	printf("fonk-min: %d\n", min->content);
+	return(min);
+}
